@@ -1,4 +1,5 @@
  <!-- Header top area start-->
+ {% load static %}
         <div class="content-inner-all">
             <div class="header-top-area">
                 <div class="fixed-header-top">
@@ -9,7 +10,7 @@
                                     <i class="fa fa-bars"></i>
                                 </button>
                                 <div class="admin-logo logo-wrap-pro">
-                                    <a href="#"><img src="img/logo/log.png" alt="" />
+                                    <a href="#"><img src="{% static 'userinterfacedesign/img/logo/log.png '%}" alt="" /><p>Art by Exergy Technologies</p>
                                     </a>
                                 </div>
                             </div>
@@ -86,7 +87,7 @@
                                                     <li>
                                                         <a href="#">
                                                             <div class="message-img">
-                                                                <img src="img/message/2.jpg" alt="">
+                                                                <img src="{% static 'userinterfacedesign/img/message/2.jpg '%}" alt="">
                                                             </div>
                                                             <div class="message-content">
                                                                 <span class="message-date">16 Sept</span>
