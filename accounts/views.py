@@ -26,6 +26,8 @@ class CreateGroupview(CreateView):
 
 
 
+
+
 #######################    REST API        #################################
 
 class UserViewSet(viewsets.ModelViewSet):
