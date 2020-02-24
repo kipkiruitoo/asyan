@@ -11,7 +11,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
-    groups = models.ForeignKey(Group, on_delete=models.CASCADE)
+    groups = models.ForeignKey(Group, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.username
