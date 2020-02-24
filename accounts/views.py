@@ -15,7 +15,7 @@ from . import forms
 class SignUp(CreateView):
     form_class = forms.UserCreateForm
     success_url = reverse_lazy('login')
-    template_name = 'templates/signup.html'
+    template_name = 'templates/userinterfacedesign/index.html'
 
 
 class CreateGroupview(CreateView):
@@ -24,7 +24,12 @@ class CreateGroupview(CreateView):
     redirect_field_name ='templates/group_detail.html'
 
 
+def index(request):
+    
 
+
+
+    return render(request,"userinterfacedesign/index.html",)
 
 
 
