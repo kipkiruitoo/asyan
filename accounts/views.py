@@ -29,7 +29,7 @@ def index(request):
 
 
 
-    return render(request,"userinterfacedesign/index.html",)
+    return render(request,"userinterfacedesign/data-table.html",)
 
 
 
