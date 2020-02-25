@@ -63,6 +63,7 @@ class CreateGroupview(CreateView):
 
 def index(request):
     return render(request,"userinterfacedesign/index.html",)
+    return render(request,"userinterfacedesign/login.html",)
 
 
 
