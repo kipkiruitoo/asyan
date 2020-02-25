@@ -6,6 +6,8 @@ class ProductsForm(forms.ModelForm, forms.MultiWidget):
     class Meta():
         model = Products
         fields = '__all__'
+        exclude = ['quantity_available']      
+
 
 
         

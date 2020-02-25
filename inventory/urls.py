@@ -13,11 +13,11 @@ urlpatterns = [
     ##############################################################################################################3
     
       ######################################################################################################
-    path('products/', views.ProductsListView.as_view(), name='products_list'),
-    path('products/new/', views.ProductsCreateView.as_view(), name='products_new'),
-    path('products/detail/<int:pk>/', views.ProductsDetailView.as_view(), name='products_detail'),
-    path('products/update/<int:pk>/', views.ProductsUpdateView.as_view(), name='products_update'),
-    path('products/delete/<int:pk>/', views.ProductsDeleteView.as_view(), name='products_delete'),
+    path('warehouse/', views.WarehouseListView.as_view(), name='warehouse_list'),
+    path('warehouse/new/', views.WarehouseCreateView.as_view(), name='warehouse_new'),
+    path('warehouse/detail/<int:pk>/', views.WarehouseDetailView.as_view(), name='warehouse_detail'),
+    path('warehouse/update/<int:pk>/', views.WarehouseUpdateView.as_view(), name='warehouse_update'),
+    path('warehouse/delete/<int:pk>/', views.WarehouseDeleteView.as_view(), name='warehouse_delete'),
     ##############################################################################################################3
       ######################################################################################################
     path('category/', views.CategoryListView.as_view(), name='category_list'),

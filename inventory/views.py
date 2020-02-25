@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 class ProductsCreateView(LoginRequiredMixin, CreateView):
     model = Products
     form_class = ProductsForm
+    success_url = reverse_lazy('inventory:products_list')
+
 
 class ProductsDetailView(LoginRequiredMixin, DetailView):
     model = Products
@@ -37,6 +39,7 @@ class ProductsListView(LoginRequiredMixin, ListView):
 class CategoryCreateView(LoginRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm
+    success_url = reverse_lazy('inventory:category_list')
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):
     model = Category
@@ -61,6 +64,8 @@ class CategoryListView(LoginRequiredMixin, ListView):
 class WarehouseCreateView(LoginRequiredMixin, CreateView):
     model = Warehouse
     form_class = WarehouseForm
+    success_url = reverse_lazy('inventory:warehouse_list')
+
 
 class WarehouseDetailView(LoginRequiredMixin, DetailView):
     model = Warehouse
@@ -85,6 +90,8 @@ class WarehouseListView(LoginRequiredMixin, ListView):
 class PalletCreateView(LoginRequiredMixin, CreateView):
     model = Pallet
     form_class = PalletForm
+    success_url = reverse_lazy('inventory:pallet_list')
+
 
 class PalletDetailView(LoginRequiredMixin, DetailView):
     model = Pallet

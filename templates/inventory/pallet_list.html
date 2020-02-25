@@ -1,0 +1,24 @@
+{% extends 'userinterfacedesign/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+    <h2>Pallets</h2>
+    <ul class="list-group">
+        {% for pallet in pallet_list %}
+            <li class="list-group-item">{{pallet.name}}</li>
+            <li class="list-group-item">{{pallet.warehouse}}</li>
+            {% comment %} {% if pallet.products%}
+                {% for product in pallet.products%}
+                    <li class="list-group-item">{{product.name}}</li>
+                {% endfor %}
+            {% endif %} {% endcomment %}
+        
+        {% endfor   %}
+        
+
+</div>
+
+{% endblock content %}
