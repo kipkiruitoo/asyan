@@ -20,6 +20,9 @@ from . import forms
 
 def user_login(request):
     template = 'auth/login.html'
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('/home/')
+
     if request.method == 'POST':
         username = password = ''
         form = LoginForm(request.POST)
@@ -27,7 +30,7 @@ def user_login(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            if not User.objects.filter(username=username).exists():
+            if not User.objects.filter(email=username).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Account name '+username + ' doest not exists.'
@@ -59,12 +62,6 @@ class CreateGroupview(CreateView):
     model = Group
     form_class = forms.GroupForm
     redirect_field_name ='templates/group_detail.html'
-
-
-def index(request):
-    return render(request,"userinterfacedesign/index.html",)
-    return render(request,"userinterfacedesign/login.html",)
-
 
 
 #######################    REST API        #################################
