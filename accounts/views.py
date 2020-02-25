@@ -14,7 +14,7 @@ from . import forms
 # Create your views here.
 class SignUp(CreateView):
     form_class = forms.UserCreateForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazcy('login')
     template_name = 'templates/userinterfacedesign/index.html'
 
 
@@ -29,7 +29,7 @@ def index(request):
 
 
 
-    return render(request,"userinterfacedesign/inbox.html",)
+    return render(request,"userinterfacedesign/mail.html",)
 
 
 
