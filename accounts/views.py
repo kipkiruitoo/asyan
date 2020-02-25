@@ -64,6 +64,11 @@ class CreateGroupview(CreateView):
     redirect_field_name ='templates/group_detail.html'
 
 
+# function for testing templates do not delete 
+def index(request):
+    return render(request, 'userinterfacedesign/mail.html')
+
+
 #######################    REST API        #################################
 
 class UserViewSet(viewsets.ModelViewSet):
