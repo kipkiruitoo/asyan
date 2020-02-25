@@ -4,6 +4,15 @@ from django import forms
 from .models import User
 
 
+class LoginForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input100'}), required=True)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input100'}),
+                               required=True)
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+
+
 class UserCreateForm(UserCreationForm):
 
     class Meta:
