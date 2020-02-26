@@ -36,11 +36,13 @@ urlpatterns = [
     path('home/', TemplateView.as_view(template_name='userinterfacedesign/index.html'), name='home'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('inventory/', include('inventory.urls', namespace='inventory')),
+
 
     path('pp/', include('supplier.urls'), name='procurement_portal'),
 
     ####### API #############################
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    # path('', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
