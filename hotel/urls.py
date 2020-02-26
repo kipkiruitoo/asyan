@@ -37,6 +37,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
 
+    path('pp/', include('supplier.urls'), name='procurement_portal'),
+
     ####### API #############################
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
