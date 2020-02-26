@@ -1,0 +1,69 @@
+{% extends "supplier/base.html" %}
+
+{% block content %}
+    <div class="row col-12 justify-content-center mt-5">
+        <form class="col-12 col-md-7 col-lg-4" action="{% url 'supplier:register_user' %}" method="post">
+            {% csrf_token %}
+                <div class="card">
+                    <div class="card-header">Supplier Self Registration | Company</div>
+                        <div class="card-body">
+                            <div class="form-row">
+                            {% if company_form.errors %}
+                                {% for field in company_form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in company_form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% for field in company_form %}
+                            <div class="form-group col-12">
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">User</div>
+                        <div class="card-body">
+                            <div class="form-row">
+                            {% if error_message %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error_message }}</strong>
+                                </div>
+                            {% endif %}
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            {% for field in form %}
+                            <div class="form-group col-12">
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                            <div class="col-12">
+                                <input type="submit" value="Register" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "supplier/base.html" %}
+
+{% block content %}
+<div class="row col-12 justify-content-center mt-5">
+  <div class="col-12 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                {% if message %}
+                    <div class="alert alert-success">
+                        <strong>Congratulations. </strong>
+                    </div>
+                    <p>
+                        Your Account has been successfully activated, You can now <a href="{% url 'supplier:user_login' %}">Login with your email and password next time you visit.</a>.
+                        <br><a href="{% url 'supplier:supply_home' %}" class="btn btn-outline-success">OK</a>
+                    </p>
+                {% else %}
+                    <div class="alert alert-danger">
+                        <strong>Oops !!. </strong>
+                    </div>
+                    <p>
+                        {{ error }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
