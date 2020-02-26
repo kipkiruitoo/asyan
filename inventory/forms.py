@@ -1,31 +1,50 @@
-from django import forms
+from django.forms import ModelForm, TextInput, NumberInput
 from .models import Products, Category, Warehouse, Pallet
 
-class ProductsForm(forms.ModelForm, forms.MultiWidget):
+class ProductsForm(ModelForm):
 
     class Meta():
         model = Products
         fields = '__all__'
-        exclude = ['quantity_available']      
+        exclude = ['quantity_available']   
+        widgets = {
+            'name': TextInput(attrs={'placeholder': "John Doe", "class": "form-control"}),
+            'selling_price': NumberInput(attrs={"class": "form-control"}),
+
+            'cost_price': NumberInput(attrs={"class": "form-control"}),
+
+            'quantity': NumberInput(attrs={"class": "form-control"}),
+
+            'quantity_available': NumberInput(attrs={"class": "form-control"}),
+            'unit_measure': TextInput(attrs={"class": "form-control"}),
+
+            'reoder_level': NumberInput(attrs={"class": "form-control"}),
+            'category': TextInput(attrs={"class": "form-control"}),
+
+            'pallet': TextInput(attrs={"class": "form-control"}),
+
+
+
+        }   
 
 
 
         
 
-class CategoryForm(forms.ModelForm):
+class CategoryForm(ModelForm):
 
     class Meta():
         model = Category
         fields = '__all__'
         
-class WarehouseForm(forms.ModelForm):
+class WarehouseForm(ModelForm):
 
     class Meta():
         model = Warehouse
         fields = '__all__'
         
         
-class PalletForm(forms.ModelForm):
+class PalletForm(ModelForm):
 
     class Meta():
         model = Pallet
