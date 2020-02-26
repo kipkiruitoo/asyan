@@ -7,25 +7,25 @@ class ProductsForm(ModelForm):
         model = Products
         fields = '__all__'
         exclude = ['quantity_available']   
-        widgets = {
-            'name': TextInput(attrs={'placeholder': "John Doe", "class": "form-control"}),
-            'selling_price': NumberInput(attrs={"class": "form-control"}),
+        # widgets = {
+        #     'name': TextInput(attrs={'placeholder': "John Doe", "class": "form-control"}),
+        #     'selling_price': NumberInput(attrs={"class": "form-control"}),
 
-            'cost_price': NumberInput(attrs={"class": "form-control"}),
+        #     'cost_price': NumberInput(attrs={"class": "form-control"}),
 
-            'quantity': NumberInput(attrs={"class": "form-control"}),
+        #     'quantity': NumberInput(attrs={"class": "form-control"}),
 
-            'quantity_available': NumberInput(attrs={"class": "form-control"}),
-            'unit_measure': TextInput(attrs={"class": "form-control"}),
+        #     'quantity_available': NumberInput(attrs={"class": "form-control"}),
+        #     'unit_measure': TextInput(attrs={"class": "form-control"}),
 
-            'reoder_level': NumberInput(attrs={"class": "form-control"}),
-            'category': TextInput(attrs={"class": "form-control"}),
+        #     'reoder_level': NumberInput(attrs={"class": "form-control"}),
+        #     'category': TextInput(attrs={"class": "form-control"}),
 
-            'pallet': TextInput(attrs={"class": "form-control"}),
+        #     'pallet': TextInput(attrs={"class": "form-control"}),
 
 
 
-        }   
+        # }   
 
 
 
