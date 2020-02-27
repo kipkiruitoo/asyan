@@ -22,11 +22,11 @@
                                          <li class="nav-item dropdown">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Inventory <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
                                             <div role="menu" class="dropdown-menu animated flipInX">
-                                                <a href="#" class="dropdown-item">Company Info</a>
-                                                <a href="#" class="dropdown-item">Documentation</a>
-                                                <a href="#" class="dropdown-item">Expert Backend</a>
-                                                <a href="#" class="dropdown-item">Expert FrontEnd</a>
-                                                <a href="#" class="dropdown-item">Contact Support</a>
+                                                <a href="{% url 'inventory:products_new'%}" class="dropdown-item">Add Inventory</a>
+                                                <a href="{% url 'inventory:products_list'%}" class="dropdown-item">View Inventory</a>
+                                                <a href="#" class="dropdown-item">Transaction</a>
+                                                <a href="#" class="dropdown-item">Categories</a>
+                                                <a href="#" class="dropdown-item">Inventory Type</a>
                                             </div>
                                          <li class="nav-item dropdown">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Purchases <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
