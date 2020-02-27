@@ -28,9 +28,9 @@
                         </li>
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-building"></i> <span class="mini-dn">Warehouse</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="inbox.html" class="dropdown-item">Warehouse</a>
-                                <a href="view-mail.html" class="dropdown-item">Pallets</a>
-                                <a href="compose-mail.html" class="dropdown-item">Inventory</a>
+                                <a href="{% url 'inventory:warehouse_list'%}" class="dropdown-item">Warehouse</a>
+                                <a href="{% url 'inventory:pallet_list'%}" class="dropdown-item">Pallets</a>
+                                <a href="{% url 'inventory:products_list'%}" class="dropdown-item">Inventory</a>
                             </div>
                         </li>
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-shopping-bag"></i> <span class="mini-dn">Purchases</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
