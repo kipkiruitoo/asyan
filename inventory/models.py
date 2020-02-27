@@ -1,5 +1,8 @@
 from django.db import models
+from django.urls import reverse
 
+
+import datetime
 # Create your models here.
 
 class Category(models.Model):
@@ -54,13 +57,22 @@ class Products(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-    # def get_absolute_url(self):
-    #     return reverse('products:product_detail', kwargs={'pk':self.pk})
+    def get_absolute_url(self):
+        return reverse('inventory:products_detail', kwargs={'pk':self.pk})
 
     class Meta:
         ordering = ['name']
         
         
-
-
-
+# class Batch(models.Model):
+#     return 
+    
+#     # def increment_batch_number():
+#     #     last_booking = Batch.objects.all().order_by('id').last()
+#     #     if not last_booking:
+#     #         return 'RNH' + str(datetime.date.today().year) + str(datetime.date.today().month).zfill(2) + '0000'
+#     #     booking_id = last_booking.booking_id
+#     #     booking_int = int(booking_id[9: 13])
+#     #     new_booking_int = booking_int + 1
+#     #     new_booking_id = 'RNH' + str(str(datetime.date.today().year)) + str(datetime.date.today().month).zfill(2) + str(new_booking_int).zfill(4)
+#     # return new_booking_id

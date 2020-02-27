@@ -37,50 +37,34 @@
                                 <thead>
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
-                                        <th data-field="id">ID</th>
                                         <th data-field="name" data-editable="true">Product Name</th>
                                         <th data-field="email" data-editable="true">Category</th>
-                                        <th data-field="phone" data-editable="true">Warehouse</th>
                                         <th data-field="company" data-editable="true">Pallet No</th>
-                                        <th data-field="complete">Quatity</th>
-                                        <th data-field="task" data-editable="true">Task</th>
-                                        <th data-field="date" data-editable="true">Date</th>
+                                        <th data-field="complete">Quantity</th>
+                                        <th data-field="date" data-editable="true">Unit</th>
+                                        <th data-field="price" data-editable="true">Reoder Level</th>
                                         <th data-field="price" data-editable="true">Price</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td>1</td>
-                                        <td>Web Development</td>
-                                        <td>admin@uttara.com</td>
-                                        <td>+8801962067309</td>
-                                        <td>Aber Ltd.</td>
-                                        <td class="datatable-ct"><span class="pie">6/6</span>
-                                        </td>
-                                        <td>30%</td>
-                                        <td>Jul 14, 2018</td>
-                                        <td>ksh.5455</td>
-                                        <td class="datatable-ct"><i class="fa fa-check"></i>
-                                        </td>
-                                    </tr>
+                                    {% for product in products_list %}
 
                                     <tr>
                                         <td></td>
-                                        <td>21</td>
-                                        <td>Jquery Advance</td>
-                                        <td>hasad@uth.com</td>
-                                        <td>+8801962067301</td>
-                                        <td>Amvescap plc</td>
-                                        <td class="datatable-ct"><span class="pie">2,7</span>
-                                        </td>
-                                        <td>15%</td>
-                                        <td>Jun 6, 2013</td>
-                                        <td>$4565656</td>
-                                        <td class="datatable-ct"><i class="fa fa-check"></i>
-                                        </td>
+                                        
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.category}}</td>
+                                        <td>{{product.pallet}}</td>
+                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.unit_measure}}</td>
+                                        <td>{{product.reoder_level}}</td>
+                                        <td>{{product.selling_price}}</td>
+                                        <td><a href="{% url 'inventory:products_update' pk=product.pk %}">Edit</a> </td>
+
                                     </tr>
+                                    {% endfor %}
+
                                 </tbody>
                             </table>
                         </div>
