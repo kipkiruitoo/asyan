@@ -39,7 +39,7 @@
                                         <th data-field="location" data-editable="true">Location</th>
                                         <th data-field="address" data-editable="true">Address</th>
                                         <th data-field="company" data-editable="true">No Pallet</th>
-                                        
+                                        <th> </th>
                                     </tr>
                                                                 </thead>
 
@@ -52,8 +52,8 @@
                                         <td>{{warehouse.name}}</td>
                                         <td>{{warehouse.location}}</td>
                                         <td>{{warehouse.address}}</td>
-                                        <td>Null nnn</td>
-                                        
+                                        <td>{{warehouse.pallet.name}}</td>
+                                         <td><a href="{% url 'inventory:warehouse_detail' pk=warehouse.pk %}">Edit</a> </td>
                                    
                                       </tr>
                                        {% endfor %}
