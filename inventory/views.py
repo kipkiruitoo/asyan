@@ -27,7 +27,7 @@ class ProductsUpdateView(LoginRequiredMixin, UpdateView):
 
 class ProductsDeleteView(LoginRequiredMixin, DeleteView):
     model = Products
-    success_url = reverse_lazy('management:employee_list')
+    success_url = reverse_lazy('inventory:products_list')
 
 class ProductsListView(LoginRequiredMixin, ListView):
     model = Products
