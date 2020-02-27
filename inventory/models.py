@@ -7,7 +7,7 @@ import datetime
 
 class Category(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    description = models.CharField(max_length=256)
+    description = models.CharField(null=True, blank=True, max_length=256)
     
     def __str__(self):
         return self.name
@@ -24,7 +24,7 @@ class Warehouse(models.Model):
 class Pallet(models.Model):
     name = models.CharField(max_length=50)
     warehouse = models.ForeignKey(Warehouse, related_name='pallet', on_delete=models.CASCADE)
-    description = models.CharField(max_length=250, null=True)
+    description = models.CharField(max_length=250, null=True, blank=True)
     
     class Meta:
         unique_together = ('name', 'warehouse')
