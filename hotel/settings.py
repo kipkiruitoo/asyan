@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'six',
     'rest_framework',
-
+    'inventory',
     'accounts',
     'supplier',
 ]
