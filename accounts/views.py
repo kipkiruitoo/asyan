@@ -24,7 +24,6 @@ def user_login(request):
         return HttpResponseRedirect('/home/')
 
     if request.method == 'POST':
-        username = password = ''
         form = LoginForm(request.POST)
 
         if form.is_valid():

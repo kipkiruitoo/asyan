@@ -1,0 +1,51 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand text-success" href="#">Procurement | Portal</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tenders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contracts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Suppliers</a>
+      </li>
+    </ul>
+    <div class="my-2 my-lg-0">
+      {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-user"></span> {{request.user.username}}
+          </a>
+          <div class="dropdown-menu" style="left:-50px;" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">My Profile</a>
+            <a class="dropdown-item" href="#">More</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'supplier:logout' %}">Logout</a>
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-user"></span> Account
+          </a>
+          <div class="dropdown-menu" style="left:-50px;" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'supplier:user_login' %}">Login</a>
+            <a class="dropdown-item" href="{% url 'supplier:register_user' %}">Register</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'supplier:logout' %}">More</a>
+          </div>
+        </li>
+      {% endif %}
+    </div>
+  </div>
+</nav>
