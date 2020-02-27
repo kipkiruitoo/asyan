@@ -44,7 +44,8 @@
                                         <th data-field="date" data-editable="true">Unit</th>
                                         <th data-field="price" data-editable="true">Reoder Level</th>
                                         <th data-field="price" data-editable="true">Price</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field=""></th>
+                             
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,8 +61,10 @@
                                         <td>{{product.unit_measure}}</td>
                                         <td>{{product.reoder_level}}</td>
                                         <td>{{product.selling_price}}</td>
-                                        <td><a href="{% url 'inventory:products_update' pk=product.pk %}">Edit</a> </td>
-
+                                        
+                                        <td ><a class='btn btn-primary'href="{% url 'inventory:products_update' pk=product.pk %}">Edit</a> </td>
+                                        
+                                        
                                     </tr>
                                     {% endfor %}
 
