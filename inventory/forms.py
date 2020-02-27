@@ -6,7 +6,6 @@ class ProductsForm(ModelForm):
     class Meta():
         model = Products
         fields = '__all__'
-        exclude = ['quantity_available']   
         # widgets = {
         #     'name': TextInput(attrs={'placeholder': "John Doe", "class": "form-control"}),
         #     'selling_price': NumberInput(attrs={"class": "form-control"}),
