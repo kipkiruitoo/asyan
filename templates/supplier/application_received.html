@@ -1,0 +1,27 @@
+{% extends "supplier/base.html" %}
+
+{% block content %}
+<div class="row col-12 justify-content-center mt-5">
+  <div class="col-12 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                    <div class="alert alert-success">
+                        <strong>Congratulations. </strong>
+                    </div>
+                    <p>
+                        Your application has been received and is being processed, you will receive an email confirmation of the same.
+                        <br><a href="{% url 'supplier:supply_home' %}" class="btn btn-outline-success">OK</a>
+                    </p>
+                {% else %}
+                    <div class="alert alert-danger">
+                        <strong>Oops !!. </strong>
+                    </div>
+                    <p>
+                        {{ error }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

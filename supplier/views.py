@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.template.loader import render_to_string
@@ -12,14 +12,15 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from accounts.forms import LoginForm
 from accounts.models import User
-from supplier.models import Company
+from .models import Company, Tender, TenderApplication
 from .forms import UserRegisterForm, CompanyForm
 from .tokens import account_activation_token
 
 
 def index(request):
     template = 'supplier/index.html'
-    return render(request, template)
+    tender_list = Tender.objects.filter(is_active=True).order_by('-rating')[:10]
+    return render(request, template, {'tenders': tender_list})
 
 
 # ==================== Auth ======================
@@ -133,3 +134,24 @@ def activate(request, uidb64, token):
 def loguser_out(request):
     logout(request)
     return HttpResponseRedirect('/pp/')
+
+
+# ========================================================================
+
+def tenders_all_view(request):
+    template = 'supplier/tenders_all.html'
+    tender_list = Tender.objects.filter(is_active=True)
+    return render(request, template, tender_list)
+
+
+def tenders_detail_view(request, pk):
+    template = 'supplier/tenders_detail.html'
+    user = request.user
+    tender = Tender.objects.get(id=pk)
+    if request.method == 'POST':  # apply for this tender
+        if not request.user.is_authenticated:
+            return redirect('/pp/login/')
+        my_tender = TenderApplication(user=user, tender=tender)
+        my_tender.save()
+        return render(request, 'supplier/application_received.html')
+    return render(request, template, {'tender': tender})

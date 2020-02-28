@@ -23,8 +23,10 @@ urlpatterns = [
                                                                  form_class=EmailValidationOnForgotPassword), name='password_reset'),
     path(r'reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='supplier/auth/password_reset_confirm.html'), name='password_reset_confirm'),
 
-    # path(r'password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='supplier/auth/password_reset_done.html'), name='password_reset_done'),
-    # path(r'reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='supplier/auth/password_reset_complete.html'), name='password_reset_complete'),
+    # =============================================================================================
+
+    path('tenders/all', views.tenders_all_view, name='all_tenders'),
+    path('tenders/<int:pk>', views.tenders_detail_view, name='tender_detail_n_apply'),
 
 ]
 

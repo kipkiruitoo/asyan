@@ -9,7 +9,7 @@
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Available <span class="table-project-n">Warehouse</span> List</h1>
+                            <h1>Projects <span class="table-project-n">Data</span> Table</h1>
                             <div class="sparkline13-outline-icon">
                                 <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 <span><i class="fa fa-wrench"></i></span>
@@ -39,7 +39,7 @@
                                         <th data-field="location" data-editable="true">Location</th>
                                         <th data-field="address" data-editable="true">Address</th>
                                         <th data-field="company" data-editable="true">No Pallet</th>
-                                        <th> </th>
+                                        
                                     </tr>
                                                                 </thead>
 
@@ -52,8 +52,8 @@
                                         <td>{{warehouse.name}}</td>
                                         <td>{{warehouse.location}}</td>
                                         <td>{{warehouse.address}}</td>
-                                        <td>{{warehouse.pallet.name}}</td>
-                                         <td><a href="{% url 'inventory:warehouse_detail' pk=warehouse.pk %}">Edit</a> </td>
+                                        <td>Null nnn</td>
+                                        
                                    
                                       </tr>
                                        {% endfor %}

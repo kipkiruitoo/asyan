@@ -11,7 +11,7 @@ urlpatterns = [
     path('products/update/<int:pk>/', views.ProductsUpdateView.as_view(), name='products_update'),
     path('products/delete/<int:pk>/', views.ProductsDeleteView.as_view(), name='products_delete'),
     ##############################################################################################################3
-     
+    
       ######################################################################################################
     path('warehouse/', views.WarehouseListView.as_view(), name='warehouse_list'),
     path('warehouse/new/', views.WarehouseCreateView.as_view(), name='warehouse_new'),

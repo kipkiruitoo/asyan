@@ -2,7 +2,7 @@ from .forms import ProductsForm, CategoryForm, WarehouseForm, PalletForm
 from .models import Products, Warehouse, Category, Pallet
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView   
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
@@ -27,7 +27,7 @@ class ProductsUpdateView(LoginRequiredMixin, UpdateView):
 
 class ProductsDeleteView(LoginRequiredMixin, DeleteView):
     model = Products
-    success_url = reverse_lazy('inventory:products_list')
+    success_url = reverse_lazy('management:employee_list')
 
 class ProductsListView(LoginRequiredMixin, ListView):
     model = Products

@@ -1,13 +1,10 @@
 from django.db import models
-from django.urls import reverse
 
-
-import datetime
 # Create your models here.
 
 class Category(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    description = models.CharField(null=True, blank=True, max_length=256)
+    description = models.CharField(max_length=256)
     
     def __str__(self):
         return self.name
@@ -24,7 +21,7 @@ class Warehouse(models.Model):
 class Pallet(models.Model):
     name = models.CharField(max_length=50)
     warehouse = models.ForeignKey(Warehouse, related_name='pallet', on_delete=models.CASCADE)
-    description = models.CharField(max_length=250, null=True, blank=True)
+    description = models.CharField(max_length=250, null=True)
     
     class Meta:
         unique_together = ('name', 'warehouse')
@@ -57,22 +54,13 @@ class Products(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-    def get_absolute_url(self):
-        return reverse('inventory:products_detail', kwargs={'pk':self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('products:product_detail', kwargs={'pk':self.pk})
 
     class Meta:
         ordering = ['name']
         
         
-# class Batch(models.Model):
-#     return 
-    
-#     # def increment_batch_number():
-#     #     last_booking = Batch.objects.all().order_by('id').last()
-#     #     if not last_booking:
-#     #         return 'RNH' + str(datetime.date.today().year) + str(datetime.date.today().month).zfill(2) + '0000'
-#     #     booking_id = last_booking.booking_id
-#     #     booking_int = int(booking_id[9: 13])
-#     #     new_booking_int = booking_int + 1
-#     #     new_booking_id = 'RNH' + str(str(datetime.date.today().year)) + str(datetime.date.today().month).zfill(2) + str(new_booking_int).zfill(4)
-#     # return new_booking_id
+
+
+

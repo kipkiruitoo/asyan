@@ -1,0 +1,35 @@
+{% extends 'supplier/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row mt-5">
+    <div class="row justify-content-center col-12 py-5">
+        <div class="card px-0 col-10 col-md-8 col-lg-5">
+            <div class="card-header">{{ tender.title }}</div>
+            <div class="card-body">
+                <div class="row col-12  p-2" style="border:none; border-bottom:1px solid rgb(200,200,200);">
+                    <div class="col-6">Product</div><div class="col-6 text-right"> {{ tender.product }}</div>
+                </div>
+                <div class="row col-12  p-2" style="border:none; border-bottom:1px solid rgb(200,200,200);">
+                    <div class="col-6">Quantity</div><div class="col-6 text-right"> {{ tender.quantity }}</div>
+                </div>
+                <div class="row col-12  p-2" style="border:none; border-bottom:1px solid rgb(200,200,200);">
+                    <div class="col-6">Tender opened</div><div class="col-6 text-right"> {{ tender.opened_on }}</div>
+                </div>
+                <div class="row col-12  p-2" style="border:none; border-bottom:1px solid rgb(200,200,200);">
+                    <div class="col-6">Application deadline</div><div class="col-6 text-right"> {{ tender.application_deadline }}</div>
+                </div>
+                <div class="row col-12  pt-3">
+                    <div class="col-6">Requirements</div><div class="col-6 text-right"> {{ tender.requirements }}</div>
+                </div>
+                <div class="row col-12  pt-3">
+                    <form method="post" action="{% url 'supplier:tender_detail_n_apply' tender.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary">Apply Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
