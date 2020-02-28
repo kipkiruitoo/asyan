@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'six',
     'rest_framework',
 
+    'inventory',
     'accounts',
     'supplier',
 ]
