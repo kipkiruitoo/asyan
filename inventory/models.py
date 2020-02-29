@@ -77,7 +77,7 @@ class Products(models.Model):
     ABC_category= models.CharField(max_length=2,null=True)
     FSN_analysis= models.CharField(max_length=255,null=True)
     reoder_level = models.PositiveIntegerField(default='')
-    safety_stock_level = models.PositiveIntegerField()
+    safety_stock_level = models.PositiveIntegerField(default=0)
     item_description = models.CharField(max_length=255, default='')
 
 
