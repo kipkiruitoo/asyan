@@ -18,30 +18,9 @@
         <button type="submit" class="btn btn-primary">Submit</button>
 
       </form>
-<div class="container">
-  <h1>Add new Department</h1>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-    <div class="row">
-      <div class="col-md-2">
-        {{ field.label_tag }}
-        {% if field.help_text %}
-        <sup>{{ field.help_text }}</sup>
-        {% endif %}
-        {{ field.errors }}
-      </div>
-      <div class="col-md-10 pull-left">
-        {{ field }}
-      </div>
-    </div>
-  </form>
-  </div>
-  <div class='col-md-2'>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
+
+  
+   
     </div>
     </div>
     </div>
