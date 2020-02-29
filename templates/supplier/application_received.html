@@ -12,14 +12,6 @@
                         Your application has been received and is being processed, you will receive an email confirmation of the same.
                         <br><a href="{% url 'supplier:supply_home' %}" class="btn btn-outline-success">OK</a>
                     </p>
-                {% else %}
-                    <div class="alert alert-danger">
-                        <strong>Oops !!. </strong>
-                    </div>
-                    <p>
-                        {{ error }}
-                    </p>
-                {% endif %}
             </div>
         </div>
     </div>

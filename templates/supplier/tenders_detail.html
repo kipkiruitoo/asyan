@@ -24,6 +24,7 @@
                 <div class="row col-12  pt-3">
                     <form method="post" action="{% url 'supplier:tender_detail_n_apply' tender.id %}">
                         {% csrf_token %}
+                        <textarea placeholder="What are your discount Terms" class="form control form-control-sm col-12" name="discount_terms"></textarea>
                         <button class="btn btn-primary">Apply Now</button>
                     </form>
                 </div>

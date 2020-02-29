@@ -151,7 +151,7 @@ def tenders_detail_view(request, pk):
     if request.method == 'POST':  # apply for this tender
         if not request.user.is_authenticated:
             return redirect('/pp/login/')
-        my_tender = TenderApplication(user=user, tender=tender)
+        my_tender = TenderApplication(user=user, tender=tender, discount_terms=request.POST.get('discount_terms', None))
         my_tender.save()
         return render(request, 'supplier/application_received.html')
     return render(request, template, {'tender': tender})

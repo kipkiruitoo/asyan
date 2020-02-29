@@ -31,5 +31,5 @@ class TenderApplication(models.Model):
     tender = models.ForeignKey(Tender, on_delete=models.CASCADE, related_name='tender', default=1)
     application_date = models.DateField(auto_now_add=True)
     is_successful = models.BooleanField(default=False)
-
+    discount_terms = models.TextField()
 
