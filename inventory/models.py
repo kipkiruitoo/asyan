@@ -78,13 +78,13 @@ class Products(models.Model):
     FSN_analysis= models.CharField(max_length=255,null=True)
     reoder_level = models.PositiveIntegerField(default='')
     safety_stock_level = models.PositiveIntegerField(default=0)
-    item_description = models.CharField(max_length=255, default='')
+    
 
 
     reoder_level = models.PositiveIntegerField()
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     pallet = models.ForeignKey(Pallet, related_name='products', on_delete=models.CASCADE)
-
+    item_description = models.TextField( default='')
     def __str__(self):
         return self.name
         
