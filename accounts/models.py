@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group
 # Create your models here.
 
 class User(AbstractUser):
-    username = models.CharField(max_length=15)
+    username = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'
