@@ -7,9 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 
-
 ##############################################################################
-#Products views
+# Products views
 class ProductsCreateView(LoginRequiredMixin, CreateView):
     model = Products
     form_class = ProductsForm
@@ -18,6 +17,7 @@ class ProductsCreateView(LoginRequiredMixin, CreateView):
 
 class ProductsDetailView(LoginRequiredMixin, DetailView):
     model = Products
+
 
 class ProductsUpdateView(LoginRequiredMixin, UpdateView):
     model = Products
@@ -29,20 +29,35 @@ class ProductsDeleteView(LoginRequiredMixin, DeleteView):
     model = Products
     success_url = reverse_lazy('management:employee_list')
 
+
 class ProductsListView(LoginRequiredMixin, ListView):
     model = Products
+    template_name = 'inventory/products_list.html'
+    products = Products.objects.all()
+    context = locals()
+    # context['products'] = products
+
+    def get(self, request, *args, **kwargs):
+        # form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'products': self.products})
+
+    # print(products)
 
 #######################################################################################
 
 ##############################################################################
-#Category views
+# Category views
+
+
 class CategoryCreateView(LoginRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm
     success_url = reverse_lazy('inventory:category_list')
 
+
 class CategoryDetailView(LoginRequiredMixin, DetailView):
     model = Category
+
 
 class CategoryUpdateView(LoginRequiredMixin, UpdateView):
     model = Category
@@ -54,13 +69,16 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('management:employee_list')
 
+
 class CategoryListView(LoginRequiredMixin, ListView):
     model = Category
 
 #######################################################################################
 
 ##############################################################################
-#Warehouse views
+# Warehouse views
+
+
 class WarehouseCreateView(LoginRequiredMixin, CreateView):
     model = Warehouse
     form_class = WarehouseForm
@@ -69,6 +87,7 @@ class WarehouseCreateView(LoginRequiredMixin, CreateView):
 
 class WarehouseDetailView(LoginRequiredMixin, DetailView):
     model = Warehouse
+
 
 class WarehouseUpdateView(LoginRequiredMixin, UpdateView):
     model = Warehouse
@@ -80,13 +99,16 @@ class WarehouseDeleteView(LoginRequiredMixin, DeleteView):
     model = Warehouse
     success_url = reverse_lazy('management:employee_list')
 
+
 class WarehouseListView(LoginRequiredMixin, ListView):
     model = Warehouse
 
 #######################################################################################
 
 ##############################################################################
-#Pallet views
+# Pallet views
+
+
 class PalletCreateView(LoginRequiredMixin, CreateView):
     model = Pallet
     form_class = PalletForm
@@ -95,6 +117,7 @@ class PalletCreateView(LoginRequiredMixin, CreateView):
 
 class PalletDetailView(LoginRequiredMixin, DetailView):
     model = Pallet
+
 
 class PalletUpdateView(LoginRequiredMixin, UpdateView):
     model = Pallet
@@ -105,6 +128,7 @@ class PalletUpdateView(LoginRequiredMixin, UpdateView):
 class PalletDeleteView(LoginRequiredMixin, DeleteView):
     model = Pallet
     success_url = reverse_lazy('management:employee_list')
+
 
 class PalletListView(LoginRequiredMixin, ListView):
     model = Pallet

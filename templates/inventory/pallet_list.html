@@ -1,8 +1,8 @@
-
 {% extends 'userinterfacedesign/base.html' %}
 {% load static %}
 {% load bootstrap4 %}
 {% block content %}
+
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
@@ -49,21 +49,21 @@
                                         <tr>
                                                                         <td></td>
                                         <td>{{pallet.id}}</td>
-                                        <td>{{pallet.name}}</td>
-                                        <td>{{pallet.warehouse}}</td>
-                                         <td><a href="{% url 'inventory:pallet_detail' pk=pallet.pk %}">Edit</a> </td>
+<td>{{pallet.name}}</td>
+<td>{{pallet.warehouse}}</td>
+<td><a href="{% url 'inventory:pallet_detail' pk=pallet.pk %}">Edit</a> </td>
 
 
-                                      </tr>
-                                        {% endfor   %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</tr>
+{% endfor   %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!-- Static Table End -->
 </div>
@@ -73,18 +73,18 @@
     <h2>Pallets</h2>
     <ul class="list-group">
         {% for pallet in pallet_list %}
-            <li class="list-group-item">{{pallet.name}}</li>
-            <li class="list-group-item">{{pallet.warehouse}}</li>
-            {% comment %} {% if pallet.products%}
-                {% for product in pallet.products%}
-                    <li class="list-group-item">{{product.name}}</li>
-                {% endfor %}
-            {% endif %} {% endcomment %}
+        <li class="list-group-item">{{pallet.name}}</li>
+        <li class="list-group-item">{{pallet.warehouse}}</li>
+        {% comment %} {% if pallet.products%}
+        {% for product in pallet.products%}
+        <li class="list-group-item">{{product.name}}</li>
+        {% endfor %}
+        {% endif %} {% endcomment %}
 
         {% endfor   %}
 
 
-</ul>
+    </ul>
 </div>
 
 
