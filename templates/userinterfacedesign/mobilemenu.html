@@ -9,93 +9,110 @@
                                         <li>
                                             <a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
-                                                <li><a href="dashboard.html">Dashboard v.1</a>
+                                                <li><a href="{% url 'home' %}">Dashboard</a>
                                                 </li>
-                                                <li><a href="dashboard-2.html">Dashboard v.2</a>
+                                                <li><a href="#">Poin of Sale</a>
                                                 </li>
-                                                <li><a href="analytics.html">Analytics</a>
+                                                <li><a href="#">Reports</a>
                                                 </li>
-                                                <li><a href="widgets.html">Widgets</a>
-                                                </li>
+                                                
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#demo" href="#">Warehouse <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="demo" class="collapse dropdown-header-top">
-                                                <li><a href="inbox.html">Inbox</a>
+                                                <li><a href="{% url 'inventory:warehouse_list' %}" >View Warehouse</a>
                                                 </li>
-                                                <li><a href="view-mail.html">View Mail</a>
+                                                <li><a href="{% url 'inventory:pallet_new' %}" >View Pallets</a>
                                                 </li>
-                                                <li><a href="compose-mail.html">Compose Mail</a>
+                                                <li><a href="{% url 'inventory:warehouse_new' %}">Add Warehouse</a>
+                                                </li>
+                                                <li><a href="{% url 'inventory:pallet_new' %}" >Add Pallets</a>
+                                                </li>
+                                                <li> <a href="#" >Requisitions</a>
+                                                </li>
+                                                <li><a href="#" >summary</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#others" href="#">Miscellaneous <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#others" href="#">Inventory <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
-                                                <li><a href="profile.html">Profile</a>
+                                                <li> <a href="{% url 'inventory:category_list' %}" > Categories</a>
                                                 </li>
-                                                <li><a href="contact-client.html">Contact Client</a>
+                                                <li><a href="{% url 'inventory:category_new' %}" >New Categories</a>
                                                 </li>
-                                                <li><a href="contact-client-v.1.html">Contact Client v.1</a>
+                                                <li><a href="{% url 'inventory:products_list' %}" >View Inventorty</a>
                                                 </li>
-                                                <li><a href="project-list.html">Project List</a>
+                                                <li><a href="{% url 'inventory:products_new' %}" >Add Inventorty</a>
                                                 </li>
-                                                <li><a href="project-details.html">Project Details</a>
+                                                <li><a href="#" >Batch Report</a>
                                                 </li>
+                                                </li>
+                                                <li><a href="#" >Make Requisition</a>
+                                                </li>
+                                                </li>
+                                                <li><a href="#" >Items Revision</a>
+                                                </li>
+                                                <li><a href="#" >Analysis</a>
+                                                </li>
+                                                
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Orders <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                <li><a href="google-map.html">Google Map</a>
+                                                <li><a href="#" >Orders Review</a>
                                                 </li>
-                                                <li><a href="data-maps.html">Data Maps</a>
+                                                <li> <a href="#" >Create Orders</a>
                                                 </li>
-                                                <li><a href="pdf-viewer.html">Pdf Viewer</a>
+                                                <li><a href="#" >Eddit Orders</a>
                                                 </li>
-                                                <li><a href="x-editable.html">X-Editable</a>
+                                                <li><a href="#" >Orders Analysis</a>
                                                 </li>
-                                                <li><a href="code-editor.html">Code Editor</a>
+                                                <li><a href="#" >Return Outwards</a>
                                                 </li>
-                                                <li><a href="tree-view.html">Tree View</a>
+                                                <li><a href="#" >Suppliers Report</a>
                                                 </li>
-                                                <li><a href="preloader.html">Preloader</a>
+                                                <li><a href="#" >Approve Requisition</a>
                                                 </li>
-                                                <li><a href="images-cropper.html">Images Cropper</a>
-                                                </li>
+                                                
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#Chartsmob" href="#">Admin <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                                <li><a href="bar-charts.html">Bar Charts</a>
+                                                <li><a href="profile.html" >Departments</a>
                                                 </li>
-                                                <li><a href="line-charts.html">Line Charts</a>
+                                                <li> <a href="profile.html" >User Managment</a>
                                                 </li>
-                                                <li><a href="area-charts.html">Area Charts</a>
+                                                <li> <a href="contact-client-v.1.html" >Reports</a>
                                                 </li>
-                                                <li><a href="rounded-chart.html">Rounded Charts</a>
+                                                <li><a href="project-list.html" >Approvals</a>
                                                 </li>
-                                                <li><a href="c3.html">C3 Charts</a>
+                                                <li> <a href="contact-client.html" >Settings</a>
                                                 </li>
-                                                <li><a href="sparkline.html">Sparkline Charts</a>
-                                                </li>
-                                                <li><a href="peity.html">Peity Charts</a>
-                                                </li>
+                               
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#Tablesmob" href="#">HRM <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                                <li><a href="static-table.html">Static Table</a>
+                                                <li><a href="bar-charts.html" >Departments</a>
                                                 </li>
-                                                <li><a href="data-table.html">Data Table</a>
+                                                <li> <a href="line-charts.html" >Add Users</a>
                                                 </li>
+                                                 <li> <a href="area-charts.html" >Profiles</a>
+                                                </li>
+                                                 <li>  <a href="rounded-chart.html" >Users Reports</a>
+                                                </li>
+                                                 <li> <a href="c3.html" >Approvals</a>
+                                                </li>
+                                                 
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#formsmob" href="#">Mailbox <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="formsmob" class="collapse dropdown-header-top">
                                                 <li><a href="basic-form-element.html">Basic Form Elements</a>
                                                 </li>
@@ -112,7 +129,7 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#Appviewsmob" href="#">Help Desk <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="Appviewsmob" class="collapse dropdown-header-top">
                                                 <li><a href="basic-form-element.html">Basic Form Elements</a>
                                                 </li>
@@ -129,7 +146,7 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#Pagemob" href="#">Profile <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="Pagemob" class="collapse dropdown-header-top">
                                                 <li><a href="login.html">Login</a>
                                                 </li>
