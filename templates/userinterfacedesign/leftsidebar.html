@@ -4,12 +4,12 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
     <!-- Header top area start-->
-   
+    
    <div class="wrapper-pro">
         <div class="left-sidebar-pro">
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <a href="#"><img src="{% static 'userinterfacedesign/img/message/1.jpg ' %}" alt="{% static 'userinterfacedesign/img/message/1.jpg ' %}" />
+                    <a href="#"><img src="{{user.profile.images.url}}" alt="" />
                     </a>
                     <h3>{{request.user.username}}</h3>
                     <p>{{request.user.groups}}</p>

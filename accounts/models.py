@@ -24,3 +24,4 @@ class profile(models.Model):
     def __str__(self):
         return f'{self.user} Profile'
     
+    
