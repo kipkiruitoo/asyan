@@ -2,7 +2,7 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block content %}
-
+{% if user.is_authenticated %}
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
@@ -92,5 +92,5 @@
 
 
 
-
+{% endif %}
 {% endblock content %}

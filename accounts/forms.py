@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm ,PasswordChangeForm
 from django.contrib.auth.models import Group
 from django import forms
 from .models import User
@@ -30,6 +30,4 @@ class GroupForm(forms.ModelForm):
     class Meta():
         model = Group
         fields = '__all__'
-
-
 

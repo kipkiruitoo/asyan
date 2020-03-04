@@ -1,15 +1,15 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
-
-from .forms import LoginForm
+from django.contrib import messages
+from .forms import LoginForm ,PasswordChangeForm
 from .models import User
 
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer
 
 
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
@@ -63,9 +63,6 @@ class CreateGroupview(CreateView):
     redirect_field_name ='templates/group_detail.html'
 
 
-# function for testing templates do not delete 
-def index(request):
-    return render(request, 'userinterfacedesign/mail.html')
 
 
 #######################    REST API        #################################
@@ -87,3 +84,23 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 #######################    REST API        #################################
+#  change password logged in user function
+# def change_password(request):
+#     if request.method =='POST':
+#             form = PasswordChangeForm(request.POST,User=request.User)
+            
+#             if form.is_valid():
+#                 form.save()
+#                 messages.success(request, 'Profile details updated.')
+#                 return redirect('login')
+                
+#             else:
+#                 messages.error(request, 'Profile Update denied.')
+#                 return render(request, 'signup')
+#     return render(request, 'auth/changepass.html')
+        
+
+
+# function for testing templates do not delete 
+def index(request):
+    return render(request, 'userinterfacedesign/mail.html')

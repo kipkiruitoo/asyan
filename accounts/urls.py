@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
-
+# from .views import change_password
 app_name = 'accounts'
 
 urlpatterns = [
@@ -14,6 +14,9 @@ urlpatterns = [
 
     path(r'password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='supplier/auth/password_reset_done.html'), name='password_reset_done'),
     path(r'reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='supplier/auth/password_reset_complete.html'), name='password_reset_complete'),
+
+    # when user is logged in change password platform
+    # path('change-password', views.change_password, name='change_password'),
 
 ]
 
