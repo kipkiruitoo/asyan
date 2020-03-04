@@ -2,9 +2,6 @@
 {% load static %}
 {% block content %}
 
-{{ products }}
-
-<!-- Static Table Start -->
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
         <div class="row">
@@ -35,39 +32,36 @@
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
                                 data-toolbar="#toolbar">
                                 <thead>
-                                    <tr>
+                                <tr>
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
-                                        <th data-field="name" data-editable="true">Product Name</th>
-                                        <th data-field="email" data-editable="true">Category</th>
-                                        <th data-field="phone" data-editable="true">Warehouse</th>
-                                        <th data-field="company" data-editable="true">Pallet No</th>
-                                        <th data-field="complete">Quantity</th>
-                                        <th data-field="cost">Cost</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field="Name" data-editable="true">Product Name</th>
+                                        <th data-field="Category" data-editable="true">Category</th>
+                                        <th data-field="warehouse" data-editable="true">warehouse</th>
+                                        <th data-field="Pallet" data-editable="true"> Pallet</th>
+                                        <th data-field="Quantity Available" data-editable="true">Quantity Available</th>
+                                        <th data-field="Product Cost" data-editable="true">Total Product Cost</th>
+                                        <th data-field="" data-editable="true">Action</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {% for pr in products %}
-                                    <tr>
-                                        <td></td>
-                                        <td>{{pr.id}}</td>
-                                        <td>{{pr.name}}</td>
-                                        <td>{{pr.category}}</td>
-                                        <td>{{pr.warehouse}}</td>
-                                        <td>{{pr.pallet}}.</td>
-                                        <td class="datatable-ct"><span
-                                                class="pie">{{pr.quantity_available}}/{{pr.quantity}}</span>
-                                        </td>
-                                        <td>{{pr.cost_price}}</td>
-                                        <td class="datatable-ct"><i class="fa fa-check"></i>
-                                        </td>
-                                        <td>
-                                           <a href=""></a> <button class="btn btn-dark">View</button>
-                                        </td>
-                                    </tr>
-                                    {% endfor   %}
+                                                                </thead>
 
+                               
+                                    {% for product in products %}
+                                     
+                                        <tr>
+                                                                        <td></td>
+                                        <td>{{product.id}}</td>
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.category}}</td>
+                                        <td>{{product.pallet.warehouse}}</td>
+                                        <td>{{product.pallet}}</td>
+                                        <td>{{product.quantity_available}}</td>
+                                        <td>{{product.cost_price}}</td>
+                                         <td>
+                                           <a href=""> <button class="btn btn-info">View</button></a>
+                                        </td> 
+                                      </tr>
+                                       {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -79,6 +73,11 @@
 </div>
 <!-- Static Table End -->
 </div>
+</div>
+
+        
+   
+
 </div>
 
 {% endblock content %}
