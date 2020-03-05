@@ -6,9 +6,20 @@ from django.views.generic import CreateView, UpdateView, DeleteView, ListView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
+from django import template
+from django.contrib.auth.models import Group
 
+register = template.Library()
+
+
+@register.filter(name='has_group')
+def has_group(user, group_name):
+    group = Group.objects.get(name=group_name)
+    return True if group in user.groups.all() else False
 ##############################################################################
 # Products views
+
+
 class ProductsCreateView(LoginRequiredMixin, CreateView):
     model = Products
     form_class = ProductsForm
