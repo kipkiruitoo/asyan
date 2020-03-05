@@ -43,7 +43,7 @@ class UserChangeForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super(UserChangeForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'
-        self.fields['username'].help_text='<div class="form-text text-muted"><small>Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.</small></div>'
+        self.fields['username'].help_text='<div class="form-text text-muted"><small>Required. 15 characters or fewer. Letters, digits and @/./+/-/_ only.</small></div>'
         self.fields['password'].help_text= " <a href=\"../changepassword/\" class='btn btn-custon-two'>Click Here</a to reset your Password."
 
 
