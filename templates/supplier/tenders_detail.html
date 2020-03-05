@@ -24,6 +24,31 @@
                 <div class="row col-12  pt-3">
                     <form method="post" action="{% url 'supplier:tender_detail_n_apply' tender.id %}">
                         {% csrf_token %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div data-role="dynamic-fields">
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="field-name">Field Name</label>
+                                                <input type="text" class="form-control" id="field-name" placeholder="Field Name">
+                                            </div>
+                                            <span>-</span>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="field-value">Field Value</label>
+                                                <input type="text" class="form-control" id="field-value" placeholder="Field Value">
+                                            </div>
+                                            <button class="btn btn-danger" data-role="remove">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                            <button class="btn btn-primary" data-role="add">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </div>  <!-- /div.form-inline -->
+                                    </div>  <!-- /div[data-role="dynamic-fields"] -->
+                                </div>  <!-- /div.col-md-12 -->
+                            </div>  <!-- /div.row -->
+                        </div>
                         <textarea placeholder="What are your discount Terms" class="form control form-control-sm col-12" name="discount_terms"></textarea>
                         <button class="btn btn-primary">Apply Now</button>
                     </form>
