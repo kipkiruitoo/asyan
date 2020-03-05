@@ -7,7 +7,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['url', 'id',  'username', 'email', 'groups']
 
 
 class GroupSerializer(serializers.ModelSerializer):
