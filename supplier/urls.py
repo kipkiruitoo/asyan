@@ -27,7 +27,9 @@ urlpatterns = [
 
     path('tenders/all', views.tenders_all_view, name='all_tenders'),
     path('tenders/<int:pk>', views.tenders_detail_view, name='tender_detail_n_apply'),
-
+# change pass
+    path('editprofile/', views.editprofile, name='editprofile'),
+    path('changepassword/', views.changepassword, name='changepassword'),
 ]
 
 
