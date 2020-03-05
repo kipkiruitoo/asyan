@@ -18,9 +18,10 @@ serializer_context = {
 
 @register.filter(name='has_group')
 def has_group(user, group_name):
-    user = User.objects.filter(username=user)
+    user = User.objects.get(username=user)
     us = UserSerializer(user, context=serializer_context)
-    print(us.data)
-    group = Group.objects.filter(name=group_name)
-    # print(user)
-    return True if group in us.groups else False
+    # print(us.data)
+    group = Group.objects.get(name=group_name)
+    print(us)
+    print(user.groups)
+    return True if group_name in us.data.groups else False

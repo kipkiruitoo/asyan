@@ -10,12 +10,12 @@ register = template.Library()
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
-    head=models.BooleanField(default=False)
+    head = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     groups = models.ForeignKey(Group, null=True, on_delete=models.CASCADE)
-    phone= models.IntegerField(max_length=15, default=0)
-    
+    phone = models.IntegerField(default=0)
+
     def __str__(self):
         return self.username
 
@@ -23,7 +23,6 @@ class User(AbstractUser):
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    phone = models.CharField(max_length=15)
 
     def __str__(self):
         return f'{self.user} Profile'
