@@ -73,3 +73,7 @@ class TransactionForm(ModelForm):
     class Meta():
         model = Transaction
         fields = '__all__'
+        widgets = {
+            'date': SelectDateWidget(),
+
+            }

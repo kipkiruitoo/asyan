@@ -148,14 +148,16 @@ class BatchListView(LoginRequiredMixin, ListView):
 def transaction_create_view(request):
     template = 'inventory/transaction_form.html'
     if request.method == 'POST':
-        form = TransactionForm
+        form = TransactionForm()
         if form.is_valid():
             #create transaction
             transaction = form.save(commit=False)
+            transaction.save()
             
             #alter product
             product = Products.objects.get(id=transaction.product)
             product.quantity_available = product.quantity_available - transaction.quantity
+            product.save()
 
             # alter batch
             batches = Batch.objects.filter(state='Current')
@@ -163,7 +165,16 @@ def transaction_create_view(request):
                 batch = batches[0]
                 if batch.quantity_remaining > transaction.quantity:
                     batch.quantity_remaining = batch.quantity_remaining - transaction.quantity
+                    batch.save()
+        else:
+            print("form not valid")
+            return render(request, template, {
+                'form': form,
+            })
+    else:
+        form = TransactionForm()
 
+    return render(request, template, {'form': form})
 
 
 class TransactionListView(LoginRequiredMixin, ListView):
