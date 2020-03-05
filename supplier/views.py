@@ -4,13 +4,13 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 # Create your views here.
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from accounts.forms import LoginForm
+from accounts.forms import LoginForm, PasswordChangeForm ,UserChangeForm
 from accounts.models import User
 from .models import Company, Tender, TenderApplication
 from .forms import UserRegisterForm, CompanyForm
@@ -155,3 +155,34 @@ def tenders_detail_view(request, pk):
         my_tender.save()
         return render(request, 'supplier/application_received.html')
     return render(request, template, {'tender': tender})
+
+
+# supplier change pass word
+def editprofile(request):
+    if request.method == "POST":
+        form = UserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ("Your Profile Updated"))
+            return redirect('home')
+    else:
+        form = UserChangeForm(instance=request.user)
+    context = {'form': form}
+    return render(request, 'supplier/editprofile.html', context)
+
+
+# user password change form
+
+def changepassword(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            
+            messages.success(request, "Your Password Changed", extra_tags='green')
+            return redirect('login')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    context = {'form': form}
+    return render(request, 'supplier/changepassword.html', context)
+
