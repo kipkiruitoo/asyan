@@ -117,7 +117,7 @@ class Batch(models.Model):
 
 class Transaction(models.Model):
     product = models.ForeignKey(Products, related_name='transaction', on_delete=(models.CASCADE))
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     batch = models.ForeignKey(Batch, related_name='transaction', on_delete=(models.CASCADE))
     quantity = models.PositiveIntegerField()
     sold_by = models.ForeignKey(User, related_name='transaction', on_delete=(models.CASCADE))

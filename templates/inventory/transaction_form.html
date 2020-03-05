@@ -1,30 +1,44 @@
 {% extends 'userinterfacedesign/base.html' %}
 {% load static %}
+{% load bootstrap4 %}
 {% block content %}
-
 {% if user.is_authenticated %}
-<div class="container">
-  <h1>Add new Transaction</h1>
-  <form method="post">
-    {% csrf_token %}
-    {% if form.errors %}
-    <div> <p> Erro ziko</p></div>
-                                {% for field in form %}
-                                    {% for error in field.errors %}
-                                        <div class="alert alert-danger">
-                                            <strong>{{ error|escape }}</strong>
-                                        </div>
-                                    {% endfor %}
-                                {% endfor %}
-                                {% for error in form.non_field_errors %}
-                                    <div class="alert alert-danger">
-                                        <strong>{{ error|escape }}</strong>
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-    {{ form }}
-    <input type="submit" class="btn btn-default" value="Add">
-  </form>
+<div class='col-md-2'>
+</div>
+<div class='col-md-8'>
+
+
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <h1> new Transaction </h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <div>
+                        <p> Erro ziko</p>
+                    </div>
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-default" value="Add">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
 </div>
 {% endif %}
 {% endblock content %}
