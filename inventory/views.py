@@ -1,5 +1,5 @@
-from .forms import ProductsForm, CategoryForm, WarehouseForm, PalletForm
-from .models import Products, Warehouse, Category, Pallet
+from .forms import ProductsForm, CategoryForm, WarehouseForm, PalletForm, BatchForm, TransactionForm
+from .models import Products, Warehouse, Category, Pallet, Batch, Transaction
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
@@ -134,3 +134,37 @@ class PalletListView(LoginRequiredMixin, ListView):
     model = Pallet
 
 #######################################################################################
+
+class BatchCreateView(LoginRequiredMixin, CreateView):
+    model = Batch
+    form_class = BatchForm
+    success_url = reverse_lazy('inventory:batch_list')
+
+
+class BatchListView(LoginRequiredMixin, ListView):
+    model = Batch
+
+
+def transaction_create_view(request):
+    template = 'inventory/transaction_form.html'
+    if request.method == 'POST':
+        form = TransactionForm
+        if form.is_valid():
+            #create transaction
+            transaction = form.save(commit=False)
+            
+            #alter product
+            product = Products.objects.get(id=transaction.product)
+            product.quantity_available = product.quantity_available - transaction.quantity
+
+            # alter batch
+            batches = Batch.objects.filter(state='Current')
+            if lens(batches) == 1:
+                batch = batches[0]
+                if batch.quantity_remaining > transaction.quantity:
+                    batch.quantity_remaining = batch.quantity_remaining - transaction.quantity
+
+
+
+class TransactionListView(LoginRequiredMixin, ListView):
+    model = Transaction                    

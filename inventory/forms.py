@@ -1,5 +1,5 @@
-from django.forms import ModelForm, TextInput, NumberInput
-from .models import Products, Category, Warehouse, Pallet
+from django.forms import ModelForm, TextInput, NumberInput, DateField, SelectDateWidget
+from .models import Products, Category, Warehouse, Pallet, Batch, Transaction
 
 class ProductsForm(ModelForm):
 
@@ -48,4 +48,28 @@ class PalletForm(ModelForm):
 
     class Meta():
         model = Pallet
+        fields = '__all__'
+
+
+
+class BatchForm(ModelForm):
+
+
+
+    class Meta():
+        model = Batch
+        fields = '__all__'
+        widgets = {
+            'date_delivery': SelectDateWidget(),
+            'date_expiry': SelectDateWidget(),
+            'date_finished': SelectDateWidget(),
+
+             
+             } 
+
+
+class TransactionForm(ModelForm):
+
+    class Meta():
+        model = Transaction
         fields = '__all__'

@@ -1,5 +1,5 @@
 from django.db import models
-
+from accounts.models import User
 # Create your models here.
 
 class Category(models.Model):
@@ -91,3 +91,37 @@ class Products(models.Model):
 
 
 
+
+class Batch(models.Model):
+    STATE_CHOICES = (
+    ('Finished', 'Finished'),
+    ('Current', 'Current'),
+    ('Later', 'Later'),)
+
+    date_delivery = models.DateField()
+    date_expiry = models.DateField()
+    date_finished = models.DateField()
+    delivered_quantity = models.IntegerField()
+    quantity_remaining = models.IntegerField()
+    pallet = models.ForeignKey(Pallet, related_name='batch', on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, related_name='batch', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(User, related_name='batch', on_delete=models.CASCADE)
+    supplier = models.ForeignKey('supplier.Company', related_name='batch', on_delete=models.CASCADE)
+    state = models.CharField(max_length=20, default='Later', choices=STATE_CHOICES)
+    def BatchNO(self):
+        return str(self.pk) + '/' + str(self.supplier.user)+ '/' +str(self.receiver) 
+
+    def __str__(self):
+        batchno = self.BatchNO()
+        return batchno
+
+class Transaction(models.Model):
+    product = models.ForeignKey(Products, related_name='transaction', on_delete=(models.CASCADE))
+    date = models.DateField()
+    batch = models.ForeignKey(Batch, related_name='transaction', on_delete=(models.CASCADE))
+    quantity = models.PositiveIntegerField()
+    sold_by = models.ForeignKey(User, related_name='transaction', on_delete=(models.CASCADE))
+    price = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.pk
