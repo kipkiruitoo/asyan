@@ -31,11 +31,7 @@
 
                             </div>
                         </li>
-                        {% if request.user|has_group:"warehouse" %}
-                        <p>User belongs to my group
-                            {% else %}
-                            <p>User doesn't belong to mygroup</p>
-                            {% endif %}
+                    
                             <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
                                     class="nav-link dropdown-toggle"><i class="fa big-icon fa-building"></i> <span
                                         class="mini-dn">Warehouse</span> <span class="indicator-right-menu mini-dn"><i
