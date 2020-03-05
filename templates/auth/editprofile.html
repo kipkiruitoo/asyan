@@ -1,0 +1,37 @@
+{% extends 'userinterfacedesign/base.html' %}
+{% load static %}
+{% block content %}
+{% load bootstrap4 %}
+<div class='col-md-2'>
+</div>
+<div class='col-md-8'>
+
+
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <h1 class='text-center'>Edit Your Profile</h1>
+                <form method="POST" action="{% url 'accounts:editprofile' %}">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>Your Form has errors <br> Form Not Updated</p>
+                    </div>
+                    {% endif %}
+                    {% bootstrap_form form %}
+                    <div class="notification-bt responsive-btn">
+                        <input id="basicSuccess" type="submit" value="Change" class="btn btn-success">
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

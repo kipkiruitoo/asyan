@@ -1,15 +1,29 @@
 {% extends 'userinterfacedesign/base.html' %}
 {% load static %}
+{% load bootstrap4 %}
 {% block content %}
-
 {% if user.is_authenticated %}
-<div class="container">
-  <h1>Add new Batch</h1>
-  <form method="post">
+<div class='col-md-2'>
+</div>
+<div class='col-md-8'>
+
+
+    <div class="container">
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <h1>Add new Batch</h1>
+      <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" class="btn btn-default" value="Add">
-  </form>
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+  
+   
+    </div>
+    </div>
+    </div>
 </div>
 {% endif %}
 {% endblock content %}

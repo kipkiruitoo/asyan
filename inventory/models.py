@@ -98,7 +98,7 @@ class Batch(models.Model):
     ('Current', 'Current'),
     ('Later', 'Later'),)
 
-    date_delivery = models.DateField()
+    date_delivery = models.DateField(auto_now_add=True)
     date_expiry = models.DateField()
     date_finished = models.DateField()
     delivered_quantity = models.IntegerField()
