@@ -13,6 +13,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
     groups = models.ForeignKey(Group, null=True, on_delete=models.CASCADE)
     phone= models.IntegerField(max_length=15, default=0)
+    
     def __str__(self):
         return self.username
     

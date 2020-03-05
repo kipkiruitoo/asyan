@@ -124,9 +124,11 @@ def changepassword(request):
         form = PasswordChangeForm(data=request.POST, user=request.user)
         if form.is_valid():
             form.save()
+            
             messages.success(request, "Your Password Changed", extra_tags='green')
             return redirect('login')
     else:
         form = PasswordChangeForm(user=request.user)
     context = {'form': form}
     return render(request, 'auth/changepassword.html', context)
+
