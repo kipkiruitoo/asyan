@@ -11,7 +11,7 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <a href="#"><img src="{{user.profile.images.url}}" alt="" />
+                    <a href="#"><img src="{% static 'userinterfacedesign/img/message/1.jpg ' %}" alt="" />
                     </a>
                     <h3>{{request.user.username}}</h3>
                     <p>{{request.user.groups}}</p>
@@ -78,8 +78,9 @@
                         </li>
                         <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-cog"></i> <span class="mini-dn">Profile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="{% url 'accounts:profile'%}" class="dropdown-item">View Profile</a>
                                 <a href="{% url 'accounts:editprofile'%}" class="dropdown-item">Update Profile</a>
-                                <a href="data-table.html" class="dropdown-item">View Profile</a>
+                               
                             </div>
                         </li>
                     </ul>

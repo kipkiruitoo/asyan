@@ -102,8 +102,8 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 # function for testing templates do not delete 
-def index(request):
-    return render(request, 'userinterfacedesign/mail.html')
+def profile(request):
+    return render(request, 'userinterfacedesign/profile.html')
 def editprofile(request):
     if request.method == "POST":
         form = UserChangeForm(request.POST, instance=request.user)
