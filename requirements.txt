@@ -1,4 +1,4 @@
 Django==3.0.3
 django-bootstrap4
 djangorestframework==3.10.3
-Pillow==2.2.2
+Pillow==6.2.0
