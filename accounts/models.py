@@ -10,11 +10,12 @@ register = template.Library()
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
-
+    head=models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     groups = models.ForeignKey(Group, null=True, on_delete=models.CASCADE)
-
+    phone= models.IntegerField(max_length=15, default=0)
+    
     def __str__(self):
         return self.username
 

@@ -33,4 +33,10 @@ urlpatterns = [
     path('pallet/update/<int:pk>/', views.PalletUpdateView.as_view(), name='pallet_update'),
     path('pallet/delete/<int:pk>/', views.PalletDeleteView.as_view(), name='pallet_delete'),
     ##############################################################################################################3
-]
+    ##############################################################################################################
+    path('batch/', views.BatchListView.as_view(), name='batch_list'),
+    path('batch/new/', views.BatchCreateView.as_view(), name='batch_new'),
+    ##############################################################################################################
+    path('transaction/', views.TransactionListView.as_view(), name='transaction_list'),
+    path('transaction/new/', views.transaction_create_view, name='transaction_new'),
+  ]

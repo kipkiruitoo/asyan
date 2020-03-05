@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import LoginForm ,PasswordChangeForm
+from .forms import LoginForm ,PasswordChangeForm ,UserChangeForm
 from .models import User
 
 from rest_framework import viewsets
@@ -104,3 +104,31 @@ class GroupViewSet(viewsets.ModelViewSet):
 # function for testing templates do not delete 
 def index(request):
     return render(request, 'userinterfacedesign/mail.html')
+def editprofile(request):
+    if request.method == "POST":
+        form = UserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ("Your Profile Updated"))
+            return redirect('home')
+    else:
+        form = UserChangeForm(instance=request.user)
+    context = {'form': form}
+    return render(request, 'auth/editprofile.html', context)
+
+
+# user password change form
+
+def changepassword(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            
+            messages.success(request, "Your Password Changed", extra_tags='green')
+            return redirect('login')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    context = {'form': form}
+    return render(request, 'auth/changepassword.html', context)
+

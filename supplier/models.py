@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 from accounts.models import User
-from inventory.models import Products
+# from inventory.models import Products
 
 
 class Company(models.Model):
@@ -14,10 +14,13 @@ class Company(models.Model):
     phone = models.CharField(max_length=100, default='')
     registered_on = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Tender(models.Model):
     title = models.CharField(max_length=100, default='')
-    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='tender_product')
+    product = models.ForeignKey('inventory.Products', on_delete=models.CASCADE, related_name='tender_product')
     quantity = models.PositiveIntegerField(default=0)
     opened_on = models.DateField(auto_now_add=True)
     application_deadline = models.DateField(default=timezone.now)
