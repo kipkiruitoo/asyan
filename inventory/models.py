@@ -4,7 +4,7 @@ from accounts.models import User
 
 class Category(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    description = models.CharField(max_length=256)
+    description = models.TextField(default='New Category')
     
     def __str__(self):
         return self.name
