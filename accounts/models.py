@@ -7,15 +7,23 @@ from django import template
 register = template.Library()
 
 
+
+
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
+    
     head = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     groups = models.ForeignKey(Group, null=True, on_delete=models.CASCADE)
     phone = models.IntegerField(default=0)
-
+    # this is what i had in mind
+    is_staff=models.BooleanField('staff status', default=False)
+    is_department_head=models.BooleanField('head status', default=False)
+    is_general_manager=models.BooleanField('GM status', default=False)
+    is_owner=models.BooleanField('owner status', default=False)
+    is_supplier=models.BooleanField('supplier status', default=False)
     def __str__(self):
         return self.username
 
