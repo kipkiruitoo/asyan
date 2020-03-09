@@ -5,12 +5,13 @@ from .models import User
 
 
 class LoginForm(forms.ModelForm):
+    email = forms.EmailField(max_length=200)
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'input100'}), required=True)
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input100'}),
                                required=True)
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username','email', 'password']
 
 
 class UserCreateForm(UserCreationForm):
