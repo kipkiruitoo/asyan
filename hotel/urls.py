@@ -38,6 +38,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('inventory/', include('inventory.urls', namespace='inventory')),
+   
 
 
     path('pp/', include('supplier.urls'), name='procurement_portal'),
