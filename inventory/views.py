@@ -12,12 +12,6 @@ from django.contrib.auth.models import Group
 register = template.Library()
 
 
-@register.filter(name='has_group')
-def has_group(user, group_name):
-    group = Group.objects.get(name=group_name)
-    return True if group in user.groups.all() else False
-##############################################################################
-# Products views
 
 
 class ProductsCreateView(LoginRequiredMixin, CreateView):
@@ -34,6 +28,7 @@ class ProductsUpdateView(LoginRequiredMixin, UpdateView):
     model = Products
     form_class = ProductsForm
     template_name_suffix = '_update_form'
+    
 
 
 class ProductsDeleteView(LoginRequiredMixin, DeleteView):
@@ -46,11 +41,13 @@ class ProductsListView(LoginRequiredMixin, ListView):
     template_name = 'inventory/products_list.html'
     products = Products.objects.all()
     context = locals()
-    # context['products'] = products
+    context['products'] = products
+
 
     def get(self, request, *args, **kwargs):
         # form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'products': self.products})
+    
 
     # print(products)
 
